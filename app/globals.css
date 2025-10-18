@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply min-h-screen bg-[#0b0f19] text-slate-100;
+    background-image:
+      radial-gradient(60rem 60rem at 10% -20%, rgba(86,98,246,0.08), transparent 40%),
+      radial-gradient(50rem 50rem at 90% -10%, rgba(190,68,255,0.07), transparent 35%),
+      linear-gradient(to bottom, #0b0f19, #0a0e18 30%, #080c16);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Input premium */
+  .input {
+    @apply w-full rounded-2xl px-5 py-3 bg-white/10 text-slate-100 placeholder-white/50
+           border border-white/10 outline-none focus:ring-2 focus:ring-indigo-500/50
+           shadow-inner;
+  }
+
+  /* Card vitrina HBO */
+  .card-hbo {
+    @apply relative rounded-2xl overflow-hidden bg-white/5 border border-white/10
+           shadow-lg transition-all duration-300 cursor-pointer;
+  }
+  .poster {
+    @apply w-full h-[260px] md:h-[300px] object-cover rounded-2xl transition-transform duration-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium
+           border border-white/10 text-white/90 backdrop-blur;
+  }
+  .label { @apply font-semibold text-white; }
+
+  /* Modal glass/blur */
+  .modal-hbo-backdrop {
+    @apply fixed inset-0 z-50 grid place-items-center p-4 bg-black/70 backdrop-blur-sm;
+  }
+  .modal-hbo-panel {
+    @apply relative w-full max-w-4xl rounded-3xl border border-white/10
+           bg-white/10 backdrop-blur-xl text-white shadow-2xl p-6 md:p-8;
+  }
+  .btn-close {
+    @apply absolute right-4 top-4 h-9 w-9 grid place-items-center rounded-full
+           bg-white/10 hover:bg-white/20 border border-white/10 text-white/80
+           transition-colors;
+  }
+
+  /* Texto secundario */
+  .muted { @apply text-sm opacity-70; }
 }
