@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Galería de Películas y Series
 
-## Getting Started
+Aplicación creada con **Next.js 14 (App Router)** que combina **SSR** y **CSR** usando la API pública de **OMDb**.  
+Permite listar películas populares, realizar búsquedas en tiempo real y ver los detalles de cada título en una ventana modal con diseño tipo **HBO Max**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tecnologías utilizadas
+- **Next.js 14** (App Router)
+- **React Hooks** (`useState`, `useEffect`)
+- **Tailwind CSS v4**
+- **OMDb API** (`https://www.omdbapi.com/`)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Características principales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🖥️ 1. Renderizado en el Servidor (SSR)
+- La página principal muestra una lista inicial de películas populares renderizadas desde el servidor (`fetchInitial()` en `page.tsx`).
 
-## Learn More
+### ⚡ 2. Renderizado en el Cliente (CSR)
+- El componente `PeliculasClient.tsx` usa `"use client"`.
+- Búsqueda interactiva sin recargar la página.
+- Resultados actualizados en tiempo real con `useEffect` y `async/await`.
 
-To learn more about Next.js, take a look at the following resources:
+### 🎞️ 3. Detalle en Modal
+- Al hacer clic en una película, se muestra una ventana emergente (modal) con información detallada:
+  - Título, año, género, director, actores, rating e historia.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎨 4. Interfaz tipo HBO Max
+- Fondo degradado oscuro, tarjetas con efecto blur y modal translúcido.
+- Diseñado completamente con **Tailwind CSS** (sin CSS externo).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚙️ Instalación y ejecución
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clonar el repositorio:
+   ```bash
+   git clone <url-del-repo>
+   cd <carpeta-del-proyecto>
